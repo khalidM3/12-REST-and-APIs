@@ -7,6 +7,15 @@
 
   repos.requestRepos = function(callback) {
     // TODO: How would you like to fetch your repos? Don't forget to call the callback.
+    $.ajax({
+      url: 'https://api.github.com/users/khalidM3/repos?type=owner',
+      method: 'GET',
+      headers: {
+        Authorization: `token ${myToken}`
+      }
+    })
+    .then(x => repos.all = x);
+    callback()
 
   };
 
